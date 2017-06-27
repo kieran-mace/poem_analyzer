@@ -1,0 +1,25 @@
+There are two instances of my code in this directory.
+
+If I am allowed to use the SciKit-Learn package, then please look at comparePoems.py
+If I am NOT allowed to use the SciKit-Learn package, then please run
+comparePoemsWithoutSciKit.py in the same way. 
+
+This code may be run as follows:
+
+Usage: comparePoems.py reference_poems_dir query_poem num_most_similar
+for example by running:
+python comparePoems.py poem-corpus/ poem-corpus/67 9
+you would be finding the 9 most common files in poem-corpus to the file poem-corpus/67
+
+
+This code takes three arguments:
+reference_poems_dir: this references the directory that contains all the
+reference poems. It may not contain any other documents, as it is assumed that
+all documents in this directory are for analysis (note, if you navigate to this
+directory in a mac, it may make a .DSStore document that will throw an error)
+
+query_poem: this is the path to the poem you want to query. this can be in the
+reference_poems_dir, but can be any other poem you like on your machine
+
+num_most_similar: this tells the software how many reference poems to return.
+It will always return these poems in order of most similar to least similar

@@ -1,0 +1,37 @@
+Initially, I was reducing each poem down to a vector of word frequencies, and
+compared them using a simple multiplication. I found though that the all the poems
+were very similar. I thought that this might be due to the high level of common
+words in each document. I then found a package in SciKit Learn that can
+take out 'stop words' that are common in english. once I did that I got far more
+separation between the poems. (according to Brie (at Quid), scikit learn was
+allowed)
+
+This method also normalizes the words according to the number of times they show
+up in the entire reference set of poems, which I believe will help highlight the
+differences between poems within a given set (it is not useful if all the poems
+are deemed the same, or of all poems are deemed as completely different)
+
+So I believe that the combination of reducing common words, and hi-lighting the
+differences between words was essential in increasing the scale of differences
+between poems.
+
+Going forward, I believe that whatever method (person or a machine like google
+translate) used to translate the original text must introduce some bias. I
+would expect that poems that are translated by the same method will cluster
+closer together than they should. One could overcome this by building a model
+of some sort of the translation process, that can deduce the bias generated.
+If that were possible, one might be able to 'subtract' the bias from the
+document frequencies before comparing them.
+
+As a last minute attempt to improve the separation, I tried to measure frequencies
+of word pairs (instead of single words). After doing a little searching on the
+internet these are called n-grams and I attempted to do all 1,2,3-grams. This
+dramatically improved my results, now getting the many of the same authors
+poems often in the top 10.
+
+Lastly, I think messing around with the max_df and min_df parameters would be
+useful. these parameters throw out n-grams (words) that have corpus frequency
+higher or lower than given thresholds. I think this is useful because it can reduce
+the noise from low frequency words (that although interesting, bare no weight on
+similarity) and the overwhelming and uninteresting signal from the very frequent
+words.
